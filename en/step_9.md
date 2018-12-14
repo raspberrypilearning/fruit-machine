@@ -1,3 +1,3 @@
-## Challenge: End the Game
+## What next?
 
-How could you make the game end when the player loses all their points? Try putting an extra test in the Which statement.
+Link to next project in the series or another project that could be completed after this

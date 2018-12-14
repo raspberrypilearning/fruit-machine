@@ -1,11 +1,19 @@
-title: fruit-machine
+title: Fruit Machine
 hero_image: images/banner.png
-description: fruit-machine description
+description: In this project, you are going to build an interactive Fruit Machine game. The game is simple: you press the button and three fruits are randomly selected from five possible options. If you get three of the same fruit, you win the game.
 version: 4
 listed: false
 copyedit: false
-last_tested: "2018-12-14"
+last_tested: "2018-12-06"
 steps:
   - title: Introduction
-  - title: Step title
-  - title: What next?
+  - title: Importing Images
+  - title: Random Choices
+  - title: Building a Game
+  - title: Making the Game Playable
+  - title: Keeping Score
+  - title: Visualizing Scores
+  - title: Finishing Touches
+  - title: What Next?
+  - title: "Challenge: End the Game"
+    challenge: true

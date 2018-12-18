@@ -16,6 +16,7 @@ The first step is to find pictures of fruits and get them into your notebook so 
 You will need to resize your images so that they're all the same size. You can do this using ImageResize.
 
 ![Resizing an Image](images/ImageResize.png)
+
 --- task ---
 Now you can make a list of your fruits. Lists start with { and end with }, and each element is separated by a ,.
 

@@ -1,46 +1,39 @@
-## Designing the User Interface
+## Creating a Function
 
-Let's create a simple user interface, so that the results are presented cleanly, clearly, and interestingly.
+Now that we have a user friendly dashboard, we can build a more general function, so that we can use any city as a location without having to change it in multiple places.
+In Wolfram, we can define a function using `:=`, which stands for `SetDelayed`. 
 
 --- task ---
-Import an image of a magic 8 ball to accompany your interface. You can do this by simply finding an image online and dragging it into a cell, or you can use the image provided here.
+Make a function called `weatherDashboard`, which has a parameter `location`.
 
+You will need to use `CommonName[location]` to extract the name of your city for the title.
 
-![Magic 8 Ball](images/8Ball.png)
-
-
-Use `ImageResize` to resize the image so that it is a 150 pixel squares.
-
-![Resize your image](images/ImageResize.png)
-
-When you run the code for `ImageResize`, the output will be the resized image. Click on the resized image and assign the image to variable name eightButton.
+```
+weatherDashboard[location_] :=
+ Framed[
+  Grid[{
+  {Text[Style[CommonName[location], Large, Gray]], SpanFromLeft},
+  {Show[IconData["AirTemperature", WeatherData[location, "Temperature"]], ImageSize -> 150],
+  Show[IconData["WindDirection", WeatherData[location, "WindDirection"]], ImageSize -> 170]},
+  {Show[IconData["RelativeHumidity", WeatherData[location, "Humidity"]], ImageSize -> 150],
+  Show[IconData["WindSpeed", WeatherData[location, "WindSpeed"]], ImageSize -> 170]}
+  }],
+  RoundingRadius -> 40, FrameMargins -> 20, FrameStyle -> {Thick, Gray}]
+  ```
 
 --- /task ---
- 
+  
+Now we can run weatherDashboard with any city simply by evaluating both the function above, and then calling the function with a specific location. You will need to use the Freeform Entry box as described in the "Exploring Weather Data" step.
+
+
+![Final Interface](images/Cairo.png)
+  
 --- task ---
-Change the button to look like a magic 8 ball instead of saying 'Answer'.
-Remove the frame around the button using `Appearance->None`.
-Present your interface using a `Column`, rather than as a list.
-Make the output strings look like text instead of code using the `Text` function.
+Call the weatherDashboard function with a few different cities.
 
+Use `$GeoLocationCity` to use the location of your own computer as the city.
+  
 ```
-answer = Text["Concentrate on your question"];
-Column[{question = "Will I get home for Christmas?";
-  InputField[Dynamic[question], String], 
-  Button[eightButton,
-   Dynamic[
-    Which[
-     Classify["Sentiment", question] == "Negative", 
-     answer = RandomChoice[negatives],
-     Classify["Sentiment", question] == "Neutral", 
-     answer = RandomChoice[noncomittal], 
-     Classify["Sentiment", question] == "Positive", 
-     answer = RandomChoice[positives]
-     ]
-    ],
-   Appearance -> None]
-  }]
-Dynamic[Text[answer]]
+weatherDashboard[$GeoLocationCity]
 ```
-
- --- /task ---
+--- /task ---

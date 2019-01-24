@@ -1,21 +1,17 @@
-## Introduction
+## Weather Data Dashboard
 
-In this project, you will build a magic 8 ball which can predict the future! Well, not exactly. But you can make people think you're predicting the future. You will build a simple magic 8 ball which simply returns a randomly selected answer, and then you'll incorporate some sentiment analysis to give the user the kind of answer they're hoping for.
+In this project, you'll use the Wolfram Language to create a weather dashboard, showing the Temperature, Humidity, Wind Speed and Wind Direction for a specific city.
 
 ### What you will make
 
 
---- print-only ---
 ![Complete project](images/Complete.png)
---- /print-only ---
+
 
 --- collapse ---
 ---
 title: What you will need
 ---
-### Hardware
-
-+ Either a computer or a Raspberry Pi
 
 ### Software
 
@@ -33,11 +29,9 @@ title: What you will need
 title: What you will learn
 ---
 
-+ Using Sentiment Analysis to choose outputs
-+ Using buttons and input fields to add interactivity
-+ Manipulating lists
-
-If you have never used the Wolfram Language before, follow [this guide](https://projects.raspberrypi.org/en/projects/getting-started-with-mathematica). You'll need to look at Starting Mathematica and Programming in Mathematica.
++ Manipulating Weather Data in the Wolfram Language
++ Using Freefrom Lingustic Input in the Wolfram Language
++ Creating functions in the Wolfram Language
 
 --- /collapse ---
 

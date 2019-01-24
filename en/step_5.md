@@ -1,3 +1,16 @@
-## Challenge: Improve the Interface
+## Challenge: Cloud Deploy
 
-Add more elements to your interface design. Maybe you could incorporate the option to have either a random choice without considering sentiment, or a sentiment based choice? You could add some instructions or experiment with graphics and Text Styling. You could make up different possible outputs for each classification.
+How could you use `CloudDeploy`, `APIFunction`, and `GeoLocation` to create a small web application which would allow users to see the weather dashboard for their location online? 
+
+
+--- hints ---
+--- hint ---
+
+```
+CloudDeploy[
+ APIFunction[{}, weatherDashboard[$GeoLocationCity] &, "PNG"], 
+ Permissions -> "Public"]
+ ```
+
+--- /hint ---
+---/hints---

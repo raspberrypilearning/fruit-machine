@@ -1,56 +1,33 @@
-## A Basic Magic 8 Ball
+## Exploring Weather Data
 
-You will build a very simple magic 8 ball, where the user can just push a button and get an answer randomly selected from a list of possible answers.
+In this step, you will explore `WeatherData` in Wolfram. 
 
---- task ---
+Wolfram has all kinds current information about the weather. In order to find weather information for a specific place, you  enter a city using Freeform Linguistic Data.
 
-Create three lists of possible responses: a positive list, a negative list, and a neutral/noncomittal list.
+When you start to type the name of a city, a pop up may appear, asking if you want to Convert to Freeform Linguistic Input. You should select this option.
 
-```
-positives = {"It is certain.", "It is decidedly so.", 
-   "Without a doubt.", "Yes-definitely.", "You may rely on it.", 
-   "As I see it,yes.", "Most likely.", "Outlook good.", "Yes.", 
-   "Signs point to yes."};
-   
-noncomittal = {"Reply hazy,try again",
-   "Ask again later.", "Better not tell you now.", 
-   "Cannot predict now.", "Concentrate and ask again."};
-   
-negatives = {"Don't count on it.", "My reply is no.", 
-   "My sources say no.", "Outlook not so good.", "Very doubtful."};
-   
-```
---- /task ---
---- task ---
+You can also press `[Control] + [=]` to access a Freeform Input box directly within your code.
 
-Join the three lists into one list of all the possible responses.
-```
-allresponses = Join[positives, noncomittal, negatives];
-```
---- /task ---
-
-
-In order to choose a response at random, we use the `RandomChoice` function. 
+A final option is to put the name of the city in quotes `""`, which will work for the majority of cities.
 
 ```
-RandomChoice[allresponses]
+WeatherData["Hanoi", "Temperature"]
+
+WeatherData["Boston", "Humidity"]
+
+WeatherData["Sydney", "WindDirection"]
+
+WeatherData["Cape Town", "WindSpeed"]
 ```
 
-It would be nice if we could have a button which lets us interact better with the code.
+`IconData` includes some cool weather icons which will be helpful in building this dashboard.
+
+![Icon Data](images/Icons.png)
+
+Try getting the temperature data and icon for your capital city
 
 ```
-Button["Ask Again", Print[RandomChoice[allresponses]]]
+IconData["AirTemperature",
+    WeatherData["London", "Temperature"]]
 ```
-The problem with this is that every time you press the button, it prints another answer under the previous one. It would be better if the new answer replaced the previous answer. In order to do this, we need to set up a Dynamic variable for the answer, which updates whenever you press the button.
 
---- task ---
-Create a Dynamic button which gives us a new random response each time we press it.
-
-```
-ans = "Focus hard on your question and ask the ball";
-Button["Ask Again",
- ans = RandomChoice[allresponses]
- ]
-Dynamic[ans]
-```
---- /task ---

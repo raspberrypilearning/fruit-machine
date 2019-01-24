@@ -1,19 +1,15 @@
-title: Fruit Machine
+title: Flipping the Coins, Rolling the Dice
 hero_image: images/banner.png
-description: 
+description:
 version: 4
 listed: false
 copyedit: false
 last_tested: "2018-12-06"
 steps:
   - title: Introduction
-  - title: Importing Images
-  - title: Random Choices
-  - title: Building a Game
-  - title: Making the Game Playable
-  - title: Keeping Score
-  - title: Visualizing Scores
-  - title: Finishing Touches
-  - title: What Next?
-  - title: "Challenge: End the Game"
+  - title: Creating a Coin Flipper
+  - title: Making the Die
+  - title: Building A Basic Interface
+  - title: Advanced Interface: Functions and Manipulations
+  - title: "Challenge: Improve the User Experience"
     challenge: true

@@ -10,6 +10,6 @@ steps:
   - title: Creating a Coin Flipper
   - title: Making the Die
   - title: Building A Basic Interface
-  - title: Advanced Interface: Functions and Manipulations
+  - title: "Advanced Interface: Functions and Manipulations"
   - title: "Challenge: Improve the User Experience"
     challenge: true

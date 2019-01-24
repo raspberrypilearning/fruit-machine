@@ -1,13 +1,51 @@
-Challenge: Improve the User Experience
+## Making your Map Interactive
 
-Try to make your Manipulate look better, and improve the user experience.
-There are a few things you could do to make it look good, try to work out how to make these changes.
-1) Make labels for the variables, so that they have real names, instead of n and a
-2) Add images to the buttons "Coins" and "Dice"
-3) Set n and a to start off at a specific value, so that we get an answer as soon as we run the manipulate.
-4) Change the size of the panel so that it doesn't change size with different numbers of coins/dice
+So far, you've created a world map with the day and night hemispheres, where you can see a specific country, hover over that country to find out if it's day time or night time, and when the sun will rise or set. But what if you don't want to see information for the United States? It would take too much effort to change the code every time you wanted to see a different country. You could set up a little tool which allows your user to chose a country from a drop down menu.
 
-Try to create an interface like this:
+In order to make a drop down menu of countries, we're going to need a list of every country in the world. Luckily, Wolfram has one built in!
 
-![Complete](images/Complete.png)
+```
+CountryData[]
+```
+![Country Data](images/CountryData.png)
+
+We can use `Manipulate` to make an interactive drop down list. `Manipulate` lets us use x as a placeholder, and then to replace x with a value that the user chooses. In order to create a `Manipulate`, we need to have a function with a placeholder variable, and a list of possibilities for what x could be.
+
+--- task ---
+
+Look at your original code for a simple map highlighting the USA:
+
+```
+GeoGraphics[
+ {
+  NightHemisphere[],
+  EdgeForm[Black],
+  FaceForm[Red],
+  Polygon[United States]
+  },
+ GeoRange -> "World"]
+ 
+ ```
+ 
+ Incorporate this code into a `Manipulate`, with the options for the polygon shape coming from `CountryData`.
+ 
+ ```
+Manipulate[
+GeoGraphics[
+ {
+  NightHemisphere[],
+  EdgeForm[Black],
+  FaceForm[Red],
+  Polygon[x]
+  },
+ GeoRange -> "World"],
+ {x, CountryData[]}
+ ]
+ 
+ ```
+--- /task ---
+
+Now we can select any country, and the map will change to highlight our selection!
+
+
 

@@ -1,106 +1,122 @@
-## Advanced Interface: Functions and Manipulations
+## Adding Information to Your Map
 
-What if we want to flip multiple coins, or roll multiple dice, at the same time?
-In order to do this, we need to use `Manipulate`.
+In this step, you're going to add a tool tip to your map, so that when people hover their cursor over the country you highlighted, they can get some information about that country.
 
-First, let's build a quick `Manipulate` interface which gives us the option to flip up to five coins.
-
-In order to return multiple coins, we can ask `RandomChoice` to run multiple times:
-
-```
-RandomChoice[coinOptions, 5]
-```
-We can get rid of the `{}` and `,` using `Grid`.
-
-```
-Grid[{RandomChoice[coinOptions, 5]}]
-```
-
-We can then use `Manipulate` to allow the user to choose how many coins to flip. We do this by replacing the number with a variable, and then telling `Manipulate` what options to give the user to replace the variable.
 
 --- task ---
-Create a `Manipulate` which gives the user the option to flip between 1 and 5 coins.
+First, make a really simple tool tip, which just displays "USA" when you hover over the United States on the map.
 
 ```
-Manipulate[
-Grid[{RandomChoice[coinOptions, i]}],
-{i, {1,2,3,4,5}}]
-```
---- /task ---
+GeoGraphics[
+ {
+  NightHemisphere[],
+  EdgeForm[Black],
+  FaceForm[Red],
+  Tooltip[
+   {Polygon[United States]},
+   "USA"
+   ]
+  },
+ GeoRange -> "World"]
+ ```
 
-We can do the exact same thing with the dice.
+![Tool Tip](images/ToolTipNightLine.png)
 
---- task ---
-
-Create a `Manipulate` which gives the user the option to roll between 1 and 5 dice.
-
-```
-Manipulate[
-Grid[{RandomChoice[diceOptions, i]}],
-{i, {1,2,3,4,5}}]
-```
+Hover your cursor over the highlighted country, and you'll see the text.
 
 --- /task ---
 
-What if we want to have a single `Manipulate` function which allows the user to either flip a certain number of coins, or roll a certain number of dice?
-One way to do this is to set up three functions, one for coins, one for dice, and one to choose which action (of coins and dice) we want to do.
+Now that we've made a simple tooltip, we can start to make it more useful. How about a tool tip which tells us if the highlighted country is in daytime or nighttime?
 
-We use `:=` to create a function using `SetDelayed`. `SetDelayed` lets us set the left hand side of the function to mean the right hand side. So then whenever we see the left hand side used, the code evaluates the right hand side in that place.
-
-Functions need to have a variable. In this case, we want the variable to be how many times we roll the die or flip the coin.
+For this, we can use the function `DaylightQ`. `DaylightQ` asks the system if it's daylight or not, and outputs either `True` or `False`. Look up `DaylightQ` in the Wolfram Documentation to find out more about how it works.
 
 --- task ---
-Create two functions using `:=`. 
+Change the tool tip from saying 'USA' to saying `True` if a city in the highlighted country is in daytime right now, and `False` if it is in nighttime.
+
+You can replace code from the previous task with this new code.
 
 ```
-coins[a_] := Grid[{RandomChoice[coinOptions, a]}]; 
-rolls[a_] := 
- Grid[{RandomChoice[{one, two, three, four, five, six}, a]}];
- ```
- --- /task ---
- 
- You can test your functions by running a number through them:
- 
- ```
- coins[3]
- ```
- 
- ```
- rolls[5]
+GeoGraphics[
+ {
+  NightHemisphere[],
+  EdgeForm[Black],
+  FaceForm[Red],
+  Tooltip[
+   {Polygon[United States]},
+   "Is it Daytime?" DaylightQ[New York City]
+   ]
+  },
+ GeoRange -> "World"]
  ```
  
- Now we need a function which lets us choose which (of coins or rolls) we want to do.
+ ![Tool Tip](images/ToolTipInfo.png)
  
- --- task ---
+--- /task ---
 
-Create a function called action, using a `Which` statement to let the user choose between running the coins function or the rolls function.
+--- collapse ---
+---
+title: How to Build an If Statement
+---
 
-The fucntion will need two input variables: the number of times we want to roll (a), and the type of roll we want (n).
+The first thing in the If statment is the test. The test will render True or False. The second item in the If statement is what the code will return if the test is True, and the third is what the statement will return if the test is False
 
-If n is "Coins", then we run the coins function, and if n is "Dice", then we run the rolls function.
- 
+ ![If Statement](images/If.png)
+--- /collapse ---
+
+We made it a little easier for people to get information from our map by adding the ability to hover over the country and find out if it is currently day or night. But at the moment, the tooltip only says 'True' or 'False'. It would be better to have the tool tip say 'It's Daytime' or 'It's Nighttime' instead.
+
+In order to do this, we need an If statement.
+
+--- task ---
+Build an If statement which shows 'It's Daytime' on the tooltip if `DaylightQ` is True, and 'It's Nighttime' if `DaylightQ` is False.
+
+You can replace code from the previous task with this new code.
+
  ```
- action[n_, a_] := 
-  Which[
-  n == "Coins", coins[a],
-  n == "Dice", rolls[a]
-  ];
+ GeoGraphics[
+ {
+  NightHemisphere[],
+  EdgeForm[Black],
+  FaceForm[Red],
+  Tooltip[
+   {Polygon[United States]},
+   If[
+    DaylightQ[New York City],
+    "It's Daytime",
+     "It's Nighttime!"
+    ]
+   ]
+  },
+ GeoRange -> "World"]
+ ```
+  ![Daytime Tool Tip](images/ToolTipDaytime.png)
+
+--- /task ---
+
+Now that we have an If Statement, we can add in some more information. It would be interesting to know, if it's daytime, when sunset will be, and if it's night time, when sunrise will be. We can find this information using the `Sunset[]` and `Sunrise[]` functions, and then taking the `TimeObject[]` of each of those functions. You need to use a city in the `Sunset[]` and `Sunrise[]` functions.
+
+--- task ---
+
+Extend your If statement to include What time the sunset will be if it's Daytime, and what time the sunrise will be if it's nighttime.
+
+You can replace code from the previous task with this new code.
+
 ```
-
- --- /task ---
- 
- 
-  --- task ---
-Build a Manipulate with these three functions. 
-
-We want to run action with the possible choices for n being "Coins" or "Dice", and possilbe choices for a being the numbers between 1 and 5.
- 
+GeoGraphics[
+ {
+  NightHemisphere[],
+  EdgeForm[Black],
+  FaceForm[Red],
+  Tooltip[
+   Polygon[United States],
+   If[DaylightQ[New York City],
+    "It's Daytime! Sunset is at: "  TimeObject[
+      Sunset[New York City]],
+     "It's Nighttime! Sunrise is at: "  TimeObject[
+      Sunrise[New York City]]
+    ]
+   ]
+  },
+ GeoRange -> "World"]
  ```
- Manipulate[
- action[n, a], 
- {n, {"Coins", "Dice"  }},
- {a, {1, 2, 3, 4, 5}}]
- ``` 
- 
- You can replace the two `Manipulates` you made with this sinlge `Manipulate`.
- --- /task ---
+--- /task ---

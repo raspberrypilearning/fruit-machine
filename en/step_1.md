@@ -1,13 +1,12 @@
-## Introduction
+## Day Time Night Time Interactive Map
 
-In this project, you are going to make an automatic coin flipper and a dice roller. You'll be working with graphics, interactivity and randomness.
+In this project, you'll use the Wolfram Language to create an interactive map which helps you find out where in the world is in day time, where is in night time, and when each country will switch between day and night.
 
 ### What you will make
 
 
---- print-only ---
 ![Complete project](images/Complete.png)
---- /print-only ---
+
 
 --- collapse ---
 ---
@@ -33,11 +32,9 @@ title: What you will need
 title: What you will learn
 ---
 
-+ Choosing items randomly from a list
-+ Creating graphics in the Wolfram Langauge
-+ Using `Manipulate` in the Wolfram Language
-
-If you have never used the Wolfram Language before, follow [this guide](https://projects.raspberrypi.org/en/projects/getting-started-with-mathematica). You'll need to look at Starting Mathematica and Programming in Mathematica.
++ Manipulating Geographic Data in the Wolfram Language
++ Using Freefrom Lingustic Input in the Wolfram Language
++ Creating interactivity in the Wolfram Language using `Manipulate`
 
 --- /collapse ---
 

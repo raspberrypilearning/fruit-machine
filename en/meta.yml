@@ -1,4 +1,4 @@
-title: Flipping the Coins, Rolling the Dice
+title: Day Time Night Time Interactive Map
 hero_image: images/banner.png
 description:
 version: 4
@@ -7,9 +7,9 @@ copyedit: false
 last_tested: "2018-12-06"
 steps:
   - title: Introduction
-  - title: Creating a Coin Flipper
-  - title: Making the Die
-  - title: Building A Basic Interface
-  - title: "Advanced Interface: Functions and Manipulations"
-  - title: "Challenge: Improve the User Experience"
-    challenge: true
+  - title: Building a Map
+  - title: Highlighting a Country
+  - title: Combining Features
+  - title: Adding Information to Your Map
+  - title: Making your Map Interactive
+  - title: Building the Interactive Map

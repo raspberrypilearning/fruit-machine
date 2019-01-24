@@ -1,12 +1,13 @@
-## Day Time Night Time Interactive Map
+## Introduction
 
-In this project, you'll use the Wolfram Language to create an interactive map which helps you find out where in the world is in day time, where is in night time, and when each country will switch between day and night.
+In this project, you will build a magic 8 ball which can predict the future! Well, not exactly. But you can make people think you're predicting the future. You will build a simple magic 8 ball which simply returns a randomly selected answer, and then you'll incorporate some sentiment analysis to give the user the kind of answer they're hoping for.
 
 ### What you will make
 
 
+--- print-only ---
 ![Complete project](images/Complete.png)
-
+--- /print-only ---
 
 --- collapse ---
 ---
@@ -32,9 +33,11 @@ title: What you will need
 title: What you will learn
 ---
 
-+ Manipulating Geographic Data in the Wolfram Language
-+ Using Freefrom Lingustic Input in the Wolfram Language
-+ Creating interactivity in the Wolfram Language using `Manipulate`
++ Using Sentiment Analysis to choose outputs
++ Using buttons and input fields to add interactivity
++ Manipulating lists
+
+If you have never used the Wolfram Language before, follow [this guide](https://projects.raspberrypi.org/en/projects/getting-started-with-mathematica). You'll need to look at Starting Mathematica and Programming in Mathematica.
 
 --- /collapse ---
 

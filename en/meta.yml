@@ -1,4 +1,4 @@
-title: Day Time Night Time Interactive Map
+title: Magic Eight Ball
 hero_image: images/banner.png
 description:
 version: 4
@@ -7,9 +7,8 @@ copyedit: false
 last_tested: "2018-12-06"
 steps:
   - title: Introduction
-  - title: Building a Map
-  - title: Highlighting a Country
-  - title: Combining Features
-  - title: Adding Information to Your Map
-  - title: Making your Map Interactive
-  - title: Building the Interactive Map
+  - title: A Basic Magic 8 Ball
+  - title: Adding Sentiment Analysis
+  - title: Designing the User Interface
+  - title: "Challenge: Improve the Interface"
+    challenge: true

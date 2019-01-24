@@ -1,36 +1,46 @@
-## Combining Features
+## Designing the User Interface
 
-So far, you've developed two features for your map: the night hemisphere, and highlighting a country. Now let's combine the two features into one map.
+Let's create a simple user interface, so that the results are presented cleanly, clearly, and interestingly.
 
-![Ploygon and NightTerminator](images/CombiningFeatures.png)
---- task --- 
+--- task ---
+Import an image of a magic 8 ball to accompany your interface. You can do this by simply finding an image online and dragging it into a cell, or you can use the image provided here.
 
-Combine the two features you've made into one map function.
+
+![Magic 8 Ball](images/8Ball.png)
+
+
+Use `ImageResize` to resize the image so that it is a 150 pixel squares.
+
+![Resize your image](images/ImageResize.png)
+
+When you run the code for `ImageResize`, the output will be the resized image. Click on the resized image and assign the image to variable name eightButton.
+
+--- /task ---
+ 
+--- task ---
+Change the button to look like a magic 8 ball instead of saying 'Answer'.
+Remove the frame around the button using `Appearance->None`.
+Present your interface using a `Column`, rather than as a list.
+Make the output strings look like text instead of code using the `Text` function.
 
 ```
-GeoGraphics[
- {
-  NightHemisphere[],
-  EdgeForm[Black],
-  FaceForm[Red],
-  Polygon[United States]
-  },
- GeoRange -> "World"]
- 
- ```
- --- /task --- 
- 
-Can you see how we put NightHemisphere and the Polygon into a list using `{}`? Putting different features into lists makes Wolfram treat them as one entity, which means that the GeoGraphics function can implement lots of things at the same time.
+answer = Text["Concentrate on your question"];
+Column[{question = "Will I get home for Christmas?";
+  InputField[Dynamic[question], String], 
+  Button[eightButton,
+   Dynamic[
+    Which[
+     Classify["Sentiment", question] == "Negative", 
+     answer = RandomChoice[negatives],
+     Classify["Sentiment", question] == "Neutral", 
+     answer = RandomChoice[noncomittal], 
+     Classify["Sentiment", question] == "Positive", 
+     answer = RandomChoice[positives]
+     ]
+    ],
+   Appearance -> None]
+  }]
+Dynamic[Text[answer]]
+```
 
-
---- collapse ---
----
-title: Day and Night Hemispheres
----
-
-Interestingly, the NightHemisphere line will look different depending on the time of year, even though the shape of the night line doesn't change through the year. This is because the night line falls differently on this projection of the map, causing some distortion. On a globe, this line would be straight all the way around. You can see below how the line changes each month through the year.
-
-
-![Difference in DayNight Terminator](images/Months.png)
-  
---- /collapse ---
+ --- /task ---

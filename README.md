@@ -1,11 +1,11 @@
-# fruit-machine
+# blank-template
 
-![fruit-machine](banner.png)
+![blank-template](banner.png)
 
-Find the project online at [projects.raspberrypi.org/en/projects/fruit-machine](https://projects.raspberrypi.org/en/projects/fruit-machine)
+Find the project online at [projects.raspberrypi.org/en/projects/blank-template](https://projects.raspberrypi.org/en/projects/blank-template)
 
 ## Resources
-For solutions and project materials, see [en/resources](https://github.com/raspberrypilearning/fruit-machine/tree/master/en/resources)
+For solutions and project materials, see [en/resources](https://github.com/raspberrypilearning/blank-template/tree/master/en/resources)
 
 ## Contributing
 See [CONTRIBUTING.md](CONTRIBUTING.md)

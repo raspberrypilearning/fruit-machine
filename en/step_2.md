@@ -1,33 +1,36 @@
-## Exploring Weather Data
+## Importing Images
 
-In this step, you will explore `WeatherData` in Wolfram. 
+The first step is to find pictures of fruits and get them into your notebook so you can use them in your project.
 
-Wolfram has all kinds current information about the weather. In order to find weather information for a specific place, you  enter a city using Freeform Linguistic Data.
+--- task ---
 
-When you start to type the name of a city, a pop up may appear, asking if you want to Convert to Freeform Linguistic Input. You should select this option.
+ You can do this by finding an image online, copying it, and pasting it into a cell. Try searching for 'fruit icons' and choosing five of your favorite fruits. Alternatively, you can use these images.
 
-You can also press `[Control] + [=]` to access a Freeform Input box directly within your code.
+![Strawberry](images/strawberry.png)
+![Watermelon](images/watermelon.png)
+![Cherries](images/cherries.png)
+![Lemon](images/lemon.png)
+![Grapes](images/grapes.png)
 
-A final option is to put the name of the city in quotes `""`, which will work for the majority of cities.
+--- /task ---
 
-```
-WeatherData["Hanoi", "Temperature"]
+--- task ---
 
-WeatherData["Boston", "Humidity"]
+Use `ImageResize` to resize all of your images so that they are 50 pixel squares.
 
-WeatherData["Sydney", "WindDirection"]
+![Resizing an Image](images/ImageResize.png)
 
-WeatherData["Cape Town", "WindSpeed"]
-```
 
-`IconData` includes some cool weather icons which will be helpful in building this dashboard.
+--- /task ---
 
-![Icon Data](images/Icons.png)
 
-Try getting the temperature data and icon for your capital city
+--- task ---
+Now make a list of your fruits.
 
-```
-IconData["AirTemperature",
-    WeatherData["London", "Temperature"]]
-```
+When you run the code for `ImageResize`, the output will be the resized image. You can click on the resized image and copy it into your list.
 
+Lists start with `{` and end with `}`, and each element is separated by a `,`.
+Assign this list to the variable name `fruits`.
+
+![Making a List](images/MakeAList.png)
+--- /task ---

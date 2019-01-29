@@ -1,4 +1,4 @@
-title: Weather Dashboard
+title: Fruit Machine
 hero_image: images/banner.png
 description:
 version: 4
@@ -7,8 +7,11 @@ copyedit: false
 last_tested: "2018-12-06"
 steps:
   - title: Introduction
-  - title: Exploring Weather Data
-  - title: Creating a Weather Dashboard
-  - title: Creating a Function
-  - title: "Challenge: Cloud Deploy"
+  - title: Importing Images
+  - title: Random Choices
+  - title: Building a Game
+  - title: Making the Game Playable
+  - title: Keeping Score
+  - title: Finishing Touches
+  - title: "Challenge: End the Game"
     challenge: true

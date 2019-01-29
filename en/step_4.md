@@ -1,39 +1,33 @@
-## Creating a Function
+## Building a Game
 
-Now that we have a user friendly dashboard, we can build a more general function, so that we can use any city as a location without having to change it in multiple places.
-In Wolfram, we can define a function using `:=`, which stands for `SetDelayed`. 
+There are three possible outcomes for the game: 3 fruit the same, 2 fruit the same, and all fruits different. 
+3 the same is a win, 2 the same is a lose, all different is a lose.
+We can find out if there are any duplicates by finding the `Count` of each fruit. We can then use `Max` to find out the largest number of duplicates.
+
+![Max Counts 2](images/MaxCounts2.png)
+
+So now we have a set of rules. If `Max` is 3, then we win, if `Max` is 2, then nothing happens, and if `Max` is 1, then we lose.
+
+We can use these `Max` counts to build a game. If all three are the same, print 'Winner!', if two are the same, print 'So Close!', and if all three are different, print 'Loser!'
+
+The best way to check if one of multiple conditions is true, and return a specific output if the contition is true, is a `Which` statement.
+
+A `Which` statement takes an input (the list of randomly chosen fruits), and checks each condition in order. If the first answer is `True`, it returns the output for that rule. If the second one is `True`, it returns the output for that condition, and so on, until there are no more conditions to check.
+
+![Which Statement](images/Which.png)
 
 --- task ---
-Make a function called `weatherDashboard`, which has a parameter `location`.
 
-You will need to use `CommonName[location]` to extract the name of your city for the title.
+Combine the random fruit picker and the game rules into a single function using a `Which` statement.
+
+![Roll](images/Roll.png)
 
 ```
-weatherDashboard[location_] :=
- Framed[
-  Grid[{
-  {Text[Style[CommonName[location], Large, Gray]], SpanFromLeft},
-  {Show[IconData["AirTemperature", WeatherData[location, "Temperature"]], ImageSize -> 150],
-  Show[IconData["WindDirection", WeatherData[location, "WindDirection"]], ImageSize -> 170]},
-  {Show[IconData["RelativeHumidity", WeatherData[location, "Humidity"]], ImageSize -> 150],
-  Show[IconData["WindSpeed", WeatherData[location, "WindSpeed"]], ImageSize -> 170]}
-  }],
-  RoundingRadius -> 40, FrameMargins -> 20, FrameStyle -> {Thick, Gray}]
-  ```
-
---- /task ---
-  
-Now we can run weatherDashboard with any city simply by evaluating both the function above, and then calling the function with a specific location. You will need to use the Freeform Entry box as described in the "Exploring Weather Data" step.
-
-
-![Final Interface](images/Cairo.png)
-  
---- task ---
-Call the weatherDashboard function with a few different cities.
-
-Use `$GeoLocationCity` to use the location of your own computer as the city.
-  
-```
-weatherDashboard[$GeoLocationCity]
+roll = RandomChoice[fruits, 3]
+Which[
+ Max[Counts[roll]] == 3, Print["Winner!"],
+ Max[Counts[roll]] == 2, Print["So Close!"] ,
+ Max[Counts[roll]] == 1, Print["Loser!"]]
+ 
 ```
 --- /task ---

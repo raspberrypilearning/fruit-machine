@@ -1,17 +1,21 @@
-## Weather Data Dashboard
+## Introduction
 
-In this project, you'll use the Wolfram Language to create a weather dashboard, showing the Temperature, Humidity, Wind Speed and Wind Direction for a specific city.
+In this project, you are going to build an interactive Fruit Machine game. The game is simple: you press the button and three fruits are randomly selected from five possible options. If you get three of the same fruit, you win the game.
 
 ### What you will make
 
 
+--- print-only ---
 ![Complete project](images/Complete.png)
-
+--- /print-only ---
 
 --- collapse ---
 ---
 title: What you will need
 ---
+### Hardware
+
++ Either a computer or a Raspberry Pi
 
 ### Software
 
@@ -29,9 +33,11 @@ title: What you will need
 title: What you will learn
 ---
 
-+ Manipulating Weather Data in the Wolfram Language
-+ Using Freefrom Lingustic Input in the Wolfram Language
-+ Creating functions in the Wolfram Language
++ Choosing items randomly from a list
++ Adding Buttons
++ Responding to user choices
+
+If you have never used the Wolfram Language before, follow [this guide](https://projects.raspberrypi.org/en/projects/getting-started-with-mathematica). You'll need to look at Starting Mathematica and Programming in Mathematica.
 
 --- /collapse ---
 
